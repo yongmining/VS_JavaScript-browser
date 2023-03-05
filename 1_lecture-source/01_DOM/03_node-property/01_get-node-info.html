@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. 노드 정보 취득</h1>
+    <p>
+        Node.prototype.nodeType : 노드 객체의 종류, 즉 노드 타입을 나타내는 상수 반환<br>
+        Node.ELEMENT_NODE (1) : 요소 노드를 의미<br>
+        Node.TEXT_NODE (3) : 텍스트 노드를 의미<br> 
+        Node.DOCUMENT_NODE (9) : 문서 노드를 의미<br>
+        Node.prototype.nodeName : 노드의 이름을 문자열로 반환<br>
+        요소 노드 : 대문자 문자열로 태그 이름 반환<br>
+        텍스트 노드 : 문자열 #text를 반환<br>
+        문서 노드 : 문자열 #document를 반환
+    </p>
+
+    <div id="area">노드 정보 취득</div>
+    <script>
+
+        console.log(document.nodeType);
+        console.log(document.nodeName);
+        
+        const $area = document.getElementById('area');
+        console.log($area.nodeType);
+        console.log(Node.ELEMENT_NODE);
+        console.log($area.nodeType === Node.ELEMENT_NODE);
+        console.log($area.nodeName);
+
+        const $textNode = $area.firstChild;
+        console.log($textNode.nodeType);
+        console.log($textNode.nodeName);
+    </script>
+</body>
+</html>

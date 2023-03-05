@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 태그 이름을 이용한 요소 노드 취득</h1>
+    <p>
+        <b>
+            Document.prototype.getElementsByTagName 메소드는 인수로 전달한 태그 이름을 
+            가지는 모든 요소 노드들을 탐색하여 반환한다.
+            메소드 이름의 elements가 복수형인 것에서도 알 수 있듯 여러 개의 요소 노드 객체를
+            가지는 DOM 컬렉션 객체인 HTMLCollection 객체를 반환한다.
+        </b>
+    </p>
+    <ul id="food">
+        <li>김치찌개</li>
+        <li>된장찌개</li>
+        <li>고등어구이</li>
+    </ul>
+    <ul id="drink">
+        <li>커피</li>
+        <li>콜라</li>
+        <li>우유</li>
+    </ul>
+    <script>
+        const $lists = document.getElementsByTagName('li');
+        console.log($lists);
+        console.log($lists.length);
+
+        let changeColor = 0;
+        for(let i = 0; i < $lists.length; i++) {
+            $lists[i].style.backgroundColor = 'rgb(130, 220, ' + changeColor + ')';
+            changeColor += 50;
+        }
+
+        // for(let i in $lists) {
+        //     $lists[i].style.backgroundColor = 'rgb(130, 220, ' + changeColor + ')';
+        //     changeColor += 50;
+        // }
+
+        //스프레드 문법 (전개)
+        [...$lists].forEach(list => list.style.color = 'blue');
+        
+        //Array.prototype.from() 사용
+        Array.from($lists).forEach(list => list.style.fontSize = '1.5em');
+
+        //Element.prototype.getElementsByTagName
+        const $drink = document.getElementById('drink');
+        const $listsFromDrink = $drink.getElementsByTagName('li');
+
+        [...$listsFromDrink].forEach(list => list.style.color = 'orangered');
+
+        const $noElem = $drink.getElementsByTagName('a');
+        console.log($noElem);
+    </script>
+</body>
+</html>

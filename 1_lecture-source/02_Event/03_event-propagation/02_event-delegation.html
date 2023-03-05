@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight {
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>02. 이벤트 위임</h1>
+    <p>
+        비슷한 방식으로 여러 요소를 다뤄야 할 때 각 요소마다 핸들러를 할당하지 않고,
+        공통의 조상에 이벤트 핸들러를 단 하나만 할당 해
+        여러 요소를 한 번에 다루는 이벤트 위임을 구현할 수 있다.
+        공통 조상에 할당한 이벤트 핸들러에서 event.target을 이용하면 실제 어디서
+        이벤트가 발생했는지 알 수 있으며, 이를 이용해 핸들링 할 수 있다.
+    </p>
+    <ul id="drink">
+        <li>커피</li>
+        <li>콜라</li>
+        <li>우유</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+
+        $drink.addEventListener('click', e => {
+            
+            if(e.target.matches('li')) {
+                highlight(e.target);
+            }
+        });
+
+        function highlight(li) {
+            li.classList.toggle('highlight');
+        }
+    </script>
+</body>
+</html>

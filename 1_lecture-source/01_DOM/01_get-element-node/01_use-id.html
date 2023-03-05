@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>01. id를 이용한 요소 노드 취득</h1>
+    <p>
+        <b>Document.prototype.getElementById 메소드는
+            인수로 전달한 id 어트리뷰트 값을 갖는 하나의 요소 노드를
+            탐색하여 반환한다.
+            <br>
+            문서 내에 중복된 id 값을 갖는 HTML 요소가 여러 개 존재하더라도
+            에러가 발생하지는 않지만
+            해당 id값을 갖는 첫 번째 요소 노드만 반환한다.
+        </b>
+    </p>
+    <div id="area1" class="area">
+        div 영역
+        <p id="area2">p 영역</p>
+    </div>
+    <div id="area1" class="area">
+        div 영역
+    </div>
+    <script>
+        //요소 노드 취득
+        const $elem = document.getElementById('area1');
+        //요소의 스타일 속성을 이용하여 배경색 변경
+        $elem.style.backgroundColor = 'skyblue';
+
+        //요소에 id를 부여하면 id와 일치하는 전역변수에 노드를 저장한다.
+        //따라서 요소 노드를 취득할 필요 없이 사용 가능하지만
+        //권장되는 방식은 아니다.
+        // let area2 = 10;
+        area2.style.backgroundColor = 'blue';
+
+        //id값을 갖는 HTML 요소가 존재하지 않는 경우 null 반환
+        const $noElem = document.getElementById('area3');
+        console.log($noElem);
+        
+    </script>
+</body>
+</html>

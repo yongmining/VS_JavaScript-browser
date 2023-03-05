@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 이벤트 전파 방지</h1>
+    <p>이벤트 객체의 stopPropagation 메소드는 이벤트 전파를 중지시킨다.</p>
+    <ul id="drink">
+        <li>커피</li>
+        <li>콜라</li>
+        <li>우유</li>
+    </ul>
+
+    <script>
+        const $drink = document.getElementById('drink');
+
+        $drink.addEventListener('click', e => {
+            if(e.target.matches('li')) {
+                e.target.style.color = 'red';
+            }
+        });
+
+        document.querySelector('li').addEventListener('click', e => {
+            e.stopPropagation();
+            e.target.style.color = 'blue';
+            console.log('이벤트 핸들러 동작');
+        });
+    </script>
+
+</body>
+</html>

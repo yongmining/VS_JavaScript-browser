@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>03. 노드 생성과 추가</h1>
+    <p>
+        Document.prototype.createElement(tagName) 
+        : 인수로 전달받은 태그 이름에 해당하는 요소를 생성 후 반환
+        <br>
+        Document.prototype.createTextNode(text) 
+        : 인수로 전달 받은 텍스트 값으로 텍스트 노드를 생성하여 반환
+        <br>
+        Node.prototype.appendChild(childNode)
+        : 인수로 전달 받은 노드를 appendChild 메소드를 호출한 노드의 마지막에 자식 요소로 추가
+    </p>
+    <ul id="drink">
+        <li>커피</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+
+        const $li = document.createElement('li');
+
+        const textNode = document.createTextNode('콜라');
+
+        $li.appendChild(textNode);
+
+        console.log($li);
+
+        $drink.appendChild($li);
+    </script>
+
+    <h3>복수개의 노드 생성과 추가</h3>
+    <ul id="food">
+        <li>김치찌개</li>
+    </ul>
+    <script>
+        const $food = document.getElementById('food');
+
+        // const $container = document.createElement('div');
+
+        const $fragment = document.createDocumentFragment();
+
+        ['된장찌개', '고등어구이', '순대국'].forEach(text => {
+            const $li = document.createElement('li');
+            $li.textContent = text;
+
+            // $container.append($li);
+            $fragment.appendChild($li);
+
+            // $food.appendChild($li);
+        });
+
+        // $food.appendChild($container);
+        $food.appendChild($fragment);
+    </script>
+</body>
+</html>
