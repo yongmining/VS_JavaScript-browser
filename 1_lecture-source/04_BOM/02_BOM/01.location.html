@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. location</h1>
+    <h3>BOM(Browser Object Model)</h3>
+    <pre>
+        브라우저 객체 모델은 무서 이외의 모든 것을 제어하기 위해
+        브라우저(호스트 환경)가 제공하는 추가 객체를 나타낸다.
+    </pre>
+
+    <h3>location</h3>
+    <pre>
+        location 객체는 현재 url을 읽을 수 있게 해주거나,
+        새로운url로 변경(redircet)할 수 있게 해준다.
+    </pre>
+    
+    <button id="btn1">새 페이지로 이동하기</button>
+    <button id="btn2">새 페이지로 이동하기</button>
+    <button id="btn3">새 페이지로 이동하기</button>
+    <button id="btn4">새 페이지로 이동하기(뒤로 가기 불가)</button>
+    <button id="btn5">현재 페이지 리로드하기</button>
+    <button id="btn6">현재 페이지 리로드하기</button>
+    <button id="btn7">현재 페이지 리로드하기</button>
+
+    <script>
+        document.getElementById('btn1').onclick = 
+            () => location.assign('https://www.google.com');
+        document.getElementById('btn2').onclick =
+            () => location.href = 'https://www.google.com';
+        document.getElementById('btn3').onclick =
+            () => location = 'https://www.google.com';
+        document.getElementById('btn4').onclick =
+            () => location.replace('https://www.google.com');
+        document.getElementById('btn5').onclick =
+            () => location.reload();
+        document.getElementById('btn6').onclick =
+            () => location.href = location.href;
+        document.getElementById('btn7').onclick =
+            () => location = location;
+    </script>
+</body>
+</html>
